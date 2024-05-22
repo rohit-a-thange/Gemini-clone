@@ -47,6 +47,7 @@ const safetySettings = [
   },
 ];
 
+// 2. The prompt goes into runChat and we get the result printed in console
 async function runChat(prompt) {
   const chatSession = model.startChat({
     generationConfig,
@@ -58,6 +59,7 @@ async function runChat(prompt) {
   const result = await chatSession.sendMessage(prompt);
   const response = result.response;
   console.log(result.response.text());
+  return result.response.text
 }
 
 export default runChat;
